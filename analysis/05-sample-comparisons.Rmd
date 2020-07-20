@@ -47,12 +47,12 @@ sce <- readRDS("data/04-marker-detection.rds")
 
 ## Differential expression
 
-### Condition (block on cluster)
+### Condition
 
 Identify genes affected by condition across clusters:
 
 ```{r}
-res <- pairwiseWilcox(x = logcounts(sce), groups = sce$phenotype, block = sce$cluster)
+res <- pairwiseWilcox(x = logcounts(sce), groups = sce$phenotype)
 
 lab <- paste(res$pairs$first, "vs", res$pairs$second)
 
